@@ -15,13 +15,14 @@ import {
   MatStepperModule,
   MatToolbarModule
 } from '@angular/material';
-import {TemplateCreateComponent} from './customer/template/create.component';
 import {AppRoutingModule} from './app.routing';
-import {ProjectCreateComponent} from './customer/project/create.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {VideoSelectorComponent} from './customer/project/video-selector.component';
-import {VideoSelectorDialogComponent} from './customer/project/video-selector-dialog.component';
+import {VideoSelectorComponent} from './customer/template/video-selector/video-selector.component';
+import {VideoSelectorDialogComponent} from './customer/template/video-selector/video-selector-dialog.component';
 import {CommonModule} from '@angular/common';
+import {RolesComponent} from './customer/template/role/roles.component';
+import {TemplateCreateComponent} from './customer/template/create.component';
+import {ProjectCreateComponent} from './customer/project/create.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {CommonModule} from '@angular/common';
     MenuComponent,
     CustomerComponent,
     ProjectCreateComponent,
+    RolesComponent,
     TemplateCreateComponent,
     VideoSelectorComponent,
     VideoSelectorDialogComponent

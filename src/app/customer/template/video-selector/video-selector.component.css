@@ -1,0 +1,23 @@
+:host {
+  display: inline-flex;
+}
+
+.video-selector-button {
+  height: 100px;
+  width: 150px;
+  margin: 5px;
+  padding: 0;
+  background-color: rgba(0, 0, 0, .38);
+  text-align: center;
+}
+
+.video-selector-button img {
+  width: auto;
+  height: 100%;
+  align-self: center;
+}
+
+.video-selector-button i {
+  color: rgba(0, 0, 0, .38);
+  font-size: 100px;
+}

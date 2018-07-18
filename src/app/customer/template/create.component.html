@@ -1,0 +1,108 @@
+<h1>Создание нового шаблона</h1>
+<form [formGroup]="templateForm">
+
+  <mat-grid-list cols="3" id="grid">
+    <mat-grid-tile
+      class="grid-tile"
+      colspan="2"
+      rowspan="1">
+      <div class="grid-container">
+        <mat-grid-tile-header class="sub-header">Информация</mat-grid-tile-header>
+        <div class="form-control">
+          <mat-form-field>
+            <input matInput placeholder="Название проекта" formControlName="name" required>
+          </mat-form-field>
+        </div>
+        <div class="form-control">
+          <mat-form-field>
+            <input matInput placeholder="Описание" formControlName="description" required>
+          </mat-form-field>
+        </div>
+        <div class="form-control">
+          <mat-form-field>
+            <input matInput placeholder="Об авторе" formControlName="author">
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile
+      class="grid-tile"
+      colspan="1"
+      rowspan="1">
+      <div class="grid-container">
+        <mat-grid-tile-header class="sub-header">Видео-материалы</mat-grid-tile-header>
+        <app-video-selector></app-video-selector>
+        <mat-grid-tile-footer>
+          <button mat-button>Ссылка на курс</button>
+        </mat-grid-tile-footer>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile
+      class="grid-tile"
+      colspan="3"
+      rowspan="1">
+      <div class="grid-container">
+        <mat-grid-tile-header class="sub-header">Роли</mat-grid-tile-header>
+        <div class="form-control">
+          <app-roles></app-roles>
+        </div>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile
+      class="grid-tile"
+      colspan="1"
+      rowspan="1"
+    >
+      <div class="grid-container">
+        <mat-grid-tile-header class="sub-header">Дополнительная информация</mat-grid-tile-header>
+        <div class="form-control">
+          <mat-form-field>
+            <input matInput type="number" placeholder="Число успешных проектов" formControlName="projectsCount" min="0">
+          </mat-form-field>
+        </div>
+        <div class="form-control">
+          <mat-form-field>
+            <input matInput placeholder="Дополнительная информация" formControlName="additional">
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile
+      class="grid-tile"
+      colspan="1"
+      rowspan="1"
+    >
+      <div class="grid-container">
+        <mat-grid-tile-header class="sub-header">Ресурсы</mat-grid-tile-header>
+        <div class="form-control">
+          <mat-form-field>
+            <input matInput placeholder="Ресурсы" formControlName="resources">
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile
+      class="grid-tile"
+      colspan="1"
+      rowspan="1"
+    >
+      <div class="grid-container">
+        <mat-grid-tile-header class="sub-header">Проекты</mat-grid-tile-header>
+        <div class="form-control">
+          <mat-form-field>
+            <input matInput type="number" placeholder="Число успешных проектов" formControlName="projectsCount" min="0">
+          </mat-form-field>
+        </div>
+        <mat-grid-tile-footer>
+          <button mat-button>Текущие проекты</button>
+        </mat-grid-tile-footer>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <div class="form-actions">
+    <button mat-raised-button (click)="save()">Сохранить</button>
+  </div>
+</form>
+
+

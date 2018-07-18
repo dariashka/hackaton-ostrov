@@ -26,7 +26,7 @@ export class VideoSelectorComponent {
   public set videoList(value: Array<VideoItem>) {
     this._videoList = value.map(x => ({...x, videoId: url.parse(x.url, true).query['v']}));
 
-}
+  }
 
 
   constructor(public dialog: MatDialog) {
@@ -37,15 +37,16 @@ export class VideoSelectorComponent {
   }
 
   public openDialog(video?: VideoItem): void {
-    this.dialog.open(VideoSelectorDialogComponent, {
-      width: '250px',
+    const dialogRef = this.dialog.open(VideoSelectorDialogComponent, {
+      width: '350px',
       data: {url: video && video.url}
     });
 
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log('The dialog was closed');
-    //   this.animal = result;
-    // });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.videoList.push({url: result});
+      }
+    });
   }
 
 }

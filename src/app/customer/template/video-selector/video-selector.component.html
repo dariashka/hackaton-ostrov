@@ -1,11 +1,7 @@
 <mat-card class="video-selector-button" *ngFor="let video of videoList"
           (click)="openDialog(video)">
-  <mat-card-content>
-    <img [src]="getThumbnail(video.videoId)" alt=""/>
-  </mat-card-content>
+  <img [src]="getThumbnail(video.videoId)" alt=""/>
 </mat-card>
 <mat-card class="video-selector-button" (click)="openDialog()">
-  <mat-card-content>
-    <mat-icon svgIcon="add"></mat-icon>
-  </mat-card-content>
+  <i class="material-icons">add_box</i>
 </mat-card>
