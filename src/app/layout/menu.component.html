@@ -2,8 +2,15 @@
   <span class="header" [routerLink]="['/']">
     {{ title.toUpperCase() }}
   </span>
-  <button mat-button [routerLink]="['project', 'new']">Создать новый проект</button>
-  <button mat-button [routerLink]="['template', 'new']">Создать новый шаблон</button>
+  <button mat-button [matMenuTriggerFor]="projectMenu">Проекты</button>
+  <mat-menu #projectMenu="matMenu">
+    <button mat-menu-item [routerLink]="['project']">Список</button>
+    <button mat-menu-item [routerLink]="['project', 'new']">Создать новый проект</button>
+  </mat-menu>
+  <button mat-button [matMenuTriggerFor]="templateMenu">Шаблоны</button>
+  <mat-menu #templateMenu="matMenu">
+    <button mat-menu-item [routerLink]="['template']">Список</button>
+    <button mat-menu-item [routerLink]="['template', 'new']">Создать новый шаблон</button>
+  </mat-menu>
 </mat-toolbar>
-
 

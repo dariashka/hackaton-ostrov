@@ -1,0 +1,89 @@
+<div class="form-container">
+  <h1>Создание нового шаблона</h1>
+  {{ templateForm.value | json }}
+  <form [formGroup]="templateForm">
+    <div class="block-container">
+      <mat-grid-tile-header class="sub-header">Информация</mat-grid-tile-header>
+      <div class="grid-container">
+        <div class="form-control">
+          <mat-form-field>
+            <input matInput placeholder="Название шаблона" formControlName="name" required>
+          </mat-form-field>
+        </div>
+        <div class="form-control">
+          <mat-form-field>
+            <input matInput placeholder="Описание" formControlName="description" required>
+          </mat-form-field>
+        </div>
+        <div class="form-control">
+          <mat-form-field>
+            <input matInput placeholder="Об авторе" formControlName="authorInfo">
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+
+    <div class="block-container">
+      <mat-grid-tile-header class="sub-header">Видео-материалы</mat-grid-tile-header>
+      <div class="grid-container">
+        <app-video-selector formControlName="videoList"></app-video-selector>
+        <mat-grid-tile-footer>
+          <button mat-button>Ссылка на курс</button>
+        </mat-grid-tile-footer>
+      </div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="block-container">
+      <app-roles formControlName="roles"></app-roles>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="block-container">
+      <app-additional-controls formControlName="additional"></app-additional-controls>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="block-container">
+      <app-resources-control formControlName="resources"></app-resources-control>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="block-container">
+      <mat-grid-tile-header class="sub-header">Проекты</mat-grid-tile-header>
+      <div class="grid-container">
+        <div class="form-control">
+          <mat-form-field>
+            <input matInput type="number" placeholder="Число успешных проектов" formControlName="projectsCount" min="0">
+          </mat-form-field>
+        </div>
+        <mat-grid-tile-footer>
+          <button mat-button>Текущие проекты</button>
+        </mat-grid-tile-footer>
+      </div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="block-container">
+      <mat-slide-toggle formControlName="isClose">Скрытый шаблон</mat-slide-toggle>
+      <div class="form-control">
+        <mat-form-field>
+          <input matInput placeholder="Категории" formControlName="categories" required>
+          <mat-hint>Введите категории, разделяя их пробелами</mat-hint>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button mat-raised-button (click)="save()">Сохранить</button>
+    </div>
+  </form>
+
+
+</div>

@@ -1,7 +1,9 @@
-import {Component} from '@angular/core';
+import {Component, forwardRef, Input} from '@angular/core';
 import {VideoSelectorDialogComponent} from './video-selector-dialog.component';
 import {MatDialog} from '@angular/material';
 import * as url from 'url';
+import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {Router} from '@angular/router';
 
 interface VideoItem {
   url: string;
@@ -11,9 +13,16 @@ interface VideoItem {
 @Component({
   selector: 'app-video-selector',
   templateUrl: './video-selector.component.html',
-  styleUrls: ['./video-selector.component.css']
+  styleUrls: ['./video-selector.component.css'],
+  providers: [{
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => VideoSelectorComponent),
+    multi: true
+  }]
 })
-export class VideoSelectorComponent {
+export class VideoSelectorComponent implements ControlValueAccessor {
+  @Input() public canNotEdit = false;
+
   private _videoList: Array<VideoItem> = [{
     url: 'https://www.youtube.com/watch?v=ioxatcadaFs',
     videoId: ''
@@ -29,7 +38,14 @@ export class VideoSelectorComponent {
   }
 
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog,
+              private _router: Router) {
+  }
+
+  public writeValue(value: any) {
+    if (value !== undefined) {
+      this.videoList = value;
+    }
   }
 
   public getThumbnail(videoId: string) {
@@ -37,16 +53,30 @@ export class VideoSelectorComponent {
   }
 
   public openDialog(video?: VideoItem): void {
-    const dialogRef = this.dialog.open(VideoSelectorDialogComponent, {
-      width: '350px',
-      data: {url: video && video.url}
-    });
+    if (!this.canNotEdit) {
+      const dialogRef = this.dialog.open(VideoSelectorDialogComponent, {
+        width: '350px',
+        data: {url: video && video.url}
+      });
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.videoList.push({url: result});
-      }
-    });
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          this.videoList.push({url: result});
+          this.propagateChange(this.videoList);
+        }
+      });
+    } else {
+      this._router.navigateByUrl(video.url);
+    }
   }
 
+  public propagateChange = (_: any) => {
+  }
+
+  public registerOnChange(fn) {
+    this.propagateChange = fn;
+  }
+
+  public registerOnTouched() {
+  }
 }

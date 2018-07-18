@@ -2,6 +2,6 @@
           (click)="openDialog(video)">
   <img [src]="getThumbnail(video.videoId)" alt=""/>
 </mat-card>
-<mat-card class="video-selector-button" (click)="openDialog()">
+<mat-card class="video-selector-button" (click)="openDialog()" *ngIf="!canNotEdit">
   <i class="material-icons">add_box</i>
 </mat-card>

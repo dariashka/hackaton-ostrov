@@ -1,0 +1,23 @@
+<mat-grid-tile-header class="sub-header">Роли
+  <button mat-fab color="primary" (click)="addNewRole()">
+    <i class="material-icons">add</i>
+  </button>
+</mat-grid-tile-header>
+<div class="grid-container">
+
+
+  <div class="form-control">
+    <div class="role-container">
+      <div *ngFor="let role of roles; let i = index">
+        <mat-checkbox name="role-{{i}}" (change)="onChange()" [(ngModel)]="role.isNeeded">
+          <div *ngIf="role.isInput" class="form-control">
+            <mat-form-field>
+              <input name="roleName" matInput placeholder="Роль" [(ngModel)]="role.name" required>
+            </mat-form-field>
+          </div>
+          <span *ngIf="!role.isInput">{{ role.name }}</span>
+        </mat-checkbox>
+      </div>
+    </div>
+  </div>
+</div>

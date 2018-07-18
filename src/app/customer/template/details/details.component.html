@@ -1,0 +1,78 @@
+<div *ngIf="isLoading">
+  <app-loader></app-loader>
+</div>
+<div *ngIf="!isLoading">
+  <mat-card class="template-card">
+    <mat-card-header>
+      <mat-card-title>{{ template.name }}</mat-card-title>
+      <mat-card-subtitle>{{ template.description }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p *ngIf="!!template.authorInfo"><b>Об авторе: </b> {{ template.authorInfo }}</p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="template-card" *ngIf="!!template.videoList.length || !!template.courseLink">
+    <mat-card-header>
+      <mat-card-title>Видео-материалы</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p *ngIf="!!template.courseLink"><b>Ссылка на курс: </b>
+        <a href="{{ template.courseLink }}">{{ template.courseLink }}</a></p>
+      <app-video-selector *ngIf="!!template.videoList.length" [canNotEdit]="true" [ngModel]="template.videoList"
+                          name="video-readonly"></app-video-selector>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="template-card">
+    <mat-card-header>
+      <mat-card-title>Роли</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <ul *ngIf="template.roles.length">
+        <li *ngFor="let role of template.roles">
+          {{ role.name }} ({{ role.description }})
+        </li>
+      </ul>
+      <p *ngIf="!template.roles.length">Роли для этого шаблона не заданы</p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="template-card" *ngIf="template.additional.length">
+    <mat-card-header>
+      <mat-card-title>Дополнительные материалы</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <ul>
+        <li *ngFor="let add of template.additional">{{ add }}</li>
+      </ul>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="template-card" *ngIf="template.resources.length">
+    <mat-card-header>
+      <mat-card-title>Ресурсы</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <ul>
+        <li *ngFor="let resource of template.resources">
+          {{ resource }}
+        </li>
+      </ul>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="template-card">
+    <mat-card-header>
+      <mat-card-title>Проекты</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p><b>Количество реализованных проектов: </b> {{ template.projectsCount }}</p>
+    </mat-card-content>
+  </mat-card>
+
+
+  <div class="form-actions">
+    <button mat-raised-button (click)="createProject()">Создать проект из этого шаблона</button>
+  </div>
+</div>

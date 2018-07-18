@@ -1,0 +1,7 @@
+<mat-list>
+  <mat-list-item *ngFor="let template of list" [routerLink]="['template', template.id]">
+    <mat-icon mat-list-icon>dashboard</mat-icon>
+    <h3 mat-line><b>{{template.name}}</b></h3>
+    <p mat-line> {{template.description}} </p>
+  </mat-list-item>
+</mat-list>

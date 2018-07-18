@@ -2,6 +2,12 @@
   width: 100%;
 }
 
+.form-container {
+  margin: 0px auto;
+  width: 80%;
+  min-width: 600px;
+}
+
 #grid {
   padding: 30px;
 }
@@ -15,26 +21,9 @@
   width: 100%;
 }
 
-.sub-header {
-  text-transform: uppercase;
-  font-size: 14px;
-  font-weight: 700;
-}
-
 .grid-container button {
   color: rgb(255, 255, 255);
   padding: 5px 10px;
   text-transform: uppercase;
 }
 
-.form-actions {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  text-align: right;
-}
-
-.form-actions button {
-  background-color: #3f51b5;
-  text-transform: uppercase;
-  color: rgb(255, 255, 255);
-}

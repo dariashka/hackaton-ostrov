@@ -1,0 +1,45 @@
+<div class="form-container">
+  <h1>Создание нового проекта</h1>
+  <form [formGroup]="projectForm">
+    <div class="block-container">
+      <mat-grid-tile-header class="sub-header">Информация</mat-grid-tile-header>
+      <div class="grid-container">
+        <div class="form-control">
+          <mat-form-field>
+            <input matInput placeholder="Название проекта" formControlName="name" required>
+          </mat-form-field>
+        </div>
+        <div class="form-control">
+          <mat-form-field>
+            <input matInput placeholder="Описание" formControlName="about" required>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="block-container">
+      <mat-grid-tile-header class="sub-header">Шаблон</mat-grid-tile-header>
+      <div class="grid-container">
+        <mat-select placeholder='Шаблон' formControlName="templateId">
+          <mat-option *ngFor="let template of templates" [value]="template.id">
+            {{ template.name }}
+          </mat-option>
+        </mat-select>
+      </div>
+    </div>
+
+    <div class="block-container">
+      <app-project-roles formControlName="party"></app-project-roles>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="form-actions">
+      <button mat-raised-button (click)="save()">Сохранить</button>
+    </div>
+  </form>
+
+
+</div>

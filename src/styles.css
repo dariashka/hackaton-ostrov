@@ -38,3 +38,70 @@
   /* Support for IE. */
   font-feature-settings: 'liga';
 }
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.mat-list-item {
+  cursor: pointer;
+}
+
+.block-container {
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.sub-header {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.form-actions {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: right;
+}
+
+.form-actions button {
+  background-color: #3f51b5;
+  text-transform: uppercase;
+  color: rgb(255, 255, 255);
+}
+
+.form-control mat-form-field {
+  width: 100%;
+}
+
+.form-container {
+  margin: 0px auto;
+  width: 80%;
+  min-width: 600px;
+}
+
+#grid {
+  padding: 30px;
+}
+
+.grid-tile {
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
+}
+
+.grid-container {
+  padding: 30px;
+  width: 100%;
+}
+
+.grid-container button {
+  color: rgb(255, 255, 255);
+  padding: 5px 10px;
+  text-transform: uppercase;
+}
+
