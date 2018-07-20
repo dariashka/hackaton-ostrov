@@ -1,0 +1,38 @@
+<div class="form-container">
+  <h1>Мой профиль</h1>
+  <form [formGroup]="userForm ">
+    <div class="block-container">
+      <div class="grid-container">
+        <div class="form-control">
+          <mat-form-field>
+            <input matInput placeholder="Имя пользователя" formControlName="username" required>
+          </mat-form-field>
+        </div>
+        <div class="form-control">
+          <mat-form-field>
+            <input matInput placeholder="Обо мне" formControlName="about" required>
+          </mat-form-field>
+        </div>
+        <div class="form-control">
+          <mat-form-field>
+            <input matInput placeholder="Имя" formControlName="firsname" required>
+          </mat-form-field>
+        </div>
+        <div class="form-control">
+          <mat-form-field>
+            <input matInput placeholder="Фамилия" formControlName="lastname" required>
+          </mat-form-field>
+        </div>
+        <div class="form-control">
+          <app-user-roles formControlName="roles"></app-user-roles>
+        </div>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+
+    <div class="form-actions">
+      <button mat-raised-button (click)="save()">Сохранить</button>
+    </div>
+  </form>
+
+</div>

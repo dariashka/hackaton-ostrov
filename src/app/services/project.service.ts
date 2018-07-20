@@ -24,7 +24,14 @@ export class ProjectService {
   }
 
   public getProject(id: number) {
-    return this._http.get(BASE_URL + '/' + id);
+    return this._http.post(BASE_URL + '/' + id, null);
+  }
 
+  public join(projectId: number, roleId: number) {
+    return this._http.post(BASE_URL + '/' + projectId + '/' + 'join' + '/' + roleId, JSON.stringify({id: 1})); // id user
+  }
+
+  public getProjectsByTemplate(templateId: number) {
+    return this._http.post(BASE_URL + 's/template/' + templateId, null);
   }
 }

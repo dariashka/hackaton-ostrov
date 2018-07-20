@@ -1,23 +1,12 @@
 import {Component, forwardRef} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
-import {TemplateRole} from '../../template/role/template-roles.component';
-import {User} from '../../../models/user.model';
-
-export interface ProjectRole {
-  id?: number;
-  isNeeded: boolean;
-  role: TemplateRole;
-  user?: User;
-  status?: number;
-  isInput?: boolean;
-}
 
 @Component({
-  selector: 'app-project-roles',
-  templateUrl: './project-roles.component.html',
+  selector: 'app-user-roles',
+  templateUrl: './user-roles.component.html',
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => ProjectRolesComponent),
+    useExisting: forwardRef(() => UserRolesComponent),
     multi: true
   }],
   styles: [`
@@ -26,8 +15,8 @@ export interface ProjectRole {
       width: 100%
     }`]
 })
-export class ProjectRolesComponent implements ControlValueAccessor {
-  public roles: Array<any> = [];
+export class UserRolesComponent implements ControlValueAccessor {
+  public roles: Array<string> = [];
 
   public writeValue(value: any) {
     if (value !== undefined) {
@@ -50,14 +39,6 @@ export class ProjectRolesComponent implements ControlValueAccessor {
   }
 
   public addNewRole() {
-    this.roles.push({
-      status: 1,
-      role: {
-        name: '',
-        about: '',
-      },
-      user: null,
-      isInput: true
-    });
+    this.roles.push('');
   }
 }

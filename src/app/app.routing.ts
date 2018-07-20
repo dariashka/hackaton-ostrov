@@ -7,6 +7,10 @@ import {TemplateListComponent} from './customer/template/list/list.component';
 import {TemplateDetailsComponent} from './customer/template/details/details.component';
 import {ProjectListComponent} from './customer/project/list/list.component';
 import {ProjectDetailsComponent} from './customer/project/details/details.component';
+import {UserListComponent} from './customer/user/list/list.component';
+import {UserDashboardComponent} from './customer/profile/dashboard/dashboard.component';
+import {UserFormComponent} from './customer/profile/form/form.component';
+import {UserDetailsComponent} from './customer/profile/details/details.component';
 
 @NgModule({
   imports: [
@@ -15,8 +19,14 @@ import {ProjectDetailsComponent} from './customer/project/details/details.compon
         path: '',
         children: [
           {
+            path: 'my',
+            component: UserDetailsComponent
+          }, {
+            path: 'register',
+            component: UserFormComponent
+          }, {
             path: 'dashboard',
-            component: CustomerComponent
+            component: UserDashboardComponent
           }, {
             path: 'template',
             children: [{
@@ -40,6 +50,15 @@ import {ProjectDetailsComponent} from './customer/project/details/details.compon
             }, {
               path: ':id',
               component: ProjectDetailsComponent
+            }]
+          }, {
+            path: 'user',
+            children: [{
+              path: '',
+              component: UserListComponent
+            }, {
+              path: ':id',
+              component: UserDetailsComponent
             }]
           }, {
             path: '',

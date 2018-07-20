@@ -9,7 +9,7 @@ export class Template {
   roles: Array<{name: string, description: string}>;
   additional: Array<string>;
   resources: Array<string>;
-  projectsCount: number;
+  projectCount: number;
   isClose: boolean;
   categories: Array<string>;
 }

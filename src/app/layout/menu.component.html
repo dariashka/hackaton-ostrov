@@ -1,7 +1,7 @@
 <mat-toolbar class="app-navbar">
-  <span class="header" [routerLink]="['/']">
+  <button mat-raised-button class="header" [routerLink]="['/']">
     {{ title.toUpperCase() }}
-  </span>
+  </button>
   <button mat-button [matMenuTriggerFor]="projectMenu">Проекты</button>
   <mat-menu #projectMenu="matMenu">
     <button mat-menu-item [routerLink]="['project']">Список</button>
@@ -11,6 +11,10 @@
   <mat-menu #templateMenu="matMenu">
     <button mat-menu-item [routerLink]="['template']">Список</button>
     <button mat-menu-item [routerLink]="['template', 'new']">Создать новый шаблон</button>
+  </mat-menu>
+  <button mat-button [matMenuTriggerFor]="userMenu">Пользователи</button>
+  <mat-menu #userMenu="matMenu">
+    <button mat-menu-item [routerLink]="['user']">Список</button>
   </mat-menu>
 </mat-toolbar>
 

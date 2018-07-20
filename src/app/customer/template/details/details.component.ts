@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {Template} from '../../../models/template.model';
 import {TemplateService} from '../../../services/template.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Project} from '../../../models/project.model';
+import {ProjectService} from '../../../services/project.service';
 
 @Component({
   selector: 'app-template-details',
@@ -19,8 +21,10 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class TemplateDetailsComponent {
   public template: Template;
   public isLoading: boolean;
+  public projects: Array<Project>;
 
   constructor(private _templateService: TemplateService,
+              private _projectService: ProjectService,
               private _activatedRoute: ActivatedRoute,
               private _router: Router) {
     this.isLoading = true;
@@ -29,6 +33,10 @@ export class TemplateDetailsComponent {
     this._templateService.getTemplate(id).subscribe(result => {
       this.template = result['template'];
       this.isLoading = false;
+    });
+
+    this._projectService.getProjectsByTemplate(id).subscribe(result => {
+      this.projects = result['projects'];
     });
   }
 

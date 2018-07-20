@@ -8,25 +8,27 @@
       <mat-card-subtitle>{{ project.about }}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      <p *ngIf="!!projectTemplate" [routerLink]=""><b>Шаблон: </b> {{ projectTemplate.name }} ({{ projectTemplate.description }})</p>
+      <p *ngIf="!!projectTemplate" [routerLink]=""><b>Шаблон: </b> {{ projectTemplate.name }}
+        <span *ngIf="projectTemplate.description">({{projectTemplate.description }})</span></p>
     </mat-card-content>
   </mat-card>
 
-  <mat-card class="project-card" *ngIf="!!project.templateId">
+  <mat-card class="project-card">
     <mat-card-header>
       <mat-card-title>Роли</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <ul *ngIf="project.party.length">
-        <li *ngFor="let role of project.party">
-          {{ role }}
+      <ul *ngIf="project.party && project.party.length">
+        <li *ngFor="let role of project.party" class="justify-between-list">
+          <span> {{ role.role.name }} <span *ngIf="role.role.about">({{ role.role.about }})</span></span>
+          <button mat-raised-button (click)="join(role.id)">Откликнуться</button>
         </li>
       </ul>
-      <p *ngIf="!project.party.length">Роли для этого проекта не заданы</p>
+      <p *ngIf="!project.party || !project.party.length">Роли для этого проекта не заданы</p>
     </mat-card-content>
   </mat-card>
 
   <!--<div class="form-actions">-->
-    <!--<button mat-raised-button (click)="createProject()">Создать проект из этого шаблона</button>-->
+  <!--<button mat-raised-button (click)="createProject()">Создать проект из этого шаблона</button>-->
   <!--</div>-->
 </div>

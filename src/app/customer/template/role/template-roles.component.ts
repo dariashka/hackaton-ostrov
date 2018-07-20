@@ -3,7 +3,8 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 export interface TemplateRole {
   name: string;
-  description: string;
+  description?: string;
+  about?: string;
 }
 
 @Component({

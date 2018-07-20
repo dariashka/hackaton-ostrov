@@ -22,7 +22,7 @@ export class TemplateCreateComponent {
       description: this._fb.control('', [Validators.required]),
       authorInfo: this._fb.control('', []),
       roles: this._fb.control([], []),
-      projectsCount: this._fb.control(0, []),
+      projectCount: this._fb.control(0, []),
       videoList: this._fb.control([], []),
       additional: this._fb.control([], []),
       resources: this._fb.control([], []),
@@ -38,7 +38,7 @@ export class TemplateCreateComponent {
       authorId: 1, // my id
       authorInfo: this.templateForm.value['authorInfo'],
       roles: this.templateForm.value['roles'],
-      projectsCount: this.templateForm.value['projectsCount'],
+      projectCount: this.templateForm.value['projectCount'],
       videoList: this.templateForm.value['videoList'].map(x => x.url),
       additional: this.templateForm.value['additional'],
       resources: this.templateForm.value['resources'],

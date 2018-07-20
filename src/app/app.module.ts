@@ -15,7 +15,7 @@ import {
   MatInputModule,
   MatListModule, MatMenuModule, MatProgressSpinnerModule, MatSelectModule,
   MatSidenavModule, MatSlideToggleModule, MatSnackBarModule,
-  MatStepperModule,
+  MatStepperModule, MatTableModule,
   MatToolbarModule
 } from '@angular/material';
 import {AppRoutingModule} from './app.routing';
@@ -41,6 +41,13 @@ import {ProjectListComponent} from './customer/project/list/list.component';
 import {ProjectService} from './services/project.service';
 import {ProjectDetailsComponent} from './customer/project/details/details.component';
 import {ProjectRolesComponent} from './customer/project/roles/project-roles.component';
+import {UserListComponent} from './customer/user/list/list.component';
+import {UserService} from './services/user.service';
+import {UserDashboardComponent} from './customer/profile/dashboard/dashboard.component';
+import {UserFormComponent} from './customer/profile/form/form.component';
+import {UserDetailsComponent} from './customer/profile/details/details.component';
+import {UserRolesComponent} from './customer/profile/form/roles/user-roles.component';
+import {UserRoleComponent} from './customer/profile/form/roles/user-role.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +69,12 @@ import {ProjectRolesComponent} from './customer/project/roles/project-roles.comp
     TemplateListComponent,
     TemplateRoleComponent,
     TemplateRolesComponent,
+    UserDashboardComponent,
+    UserDetailsComponent,
+    UserFormComponent,
+    UserListComponent,
+    UserRoleComponent,
+    UserRolesComponent,
     VideoSelectorComponent,
     VideoSelectorDialogComponent
   ],
@@ -89,12 +102,16 @@ import {ProjectRolesComponent} from './customer/project/roles/project-roles.comp
     MatSlideToggleModule,
     MatSnackBarModule,
     MatStepperModule,
+    MatTableModule,
     MatToolbarModule,
     ReactiveFormsModule
   ],
   entryComponents: [VideoSelectorDialogComponent],
-  providers: [TemplateService,
-    ProjectService],
+  providers: [
+    TemplateService,
+    ProjectService,
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

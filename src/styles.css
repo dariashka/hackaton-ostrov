@@ -105,3 +105,16 @@
   text-transform: uppercase;
 }
 
+.list-button {
+  cursor: pointer;
+}
+
+.justify-between-list {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  justify-content: space-between;
+}
+
+.table {
+  width: 100%;
+}

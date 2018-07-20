@@ -1,0 +1,18 @@
+<mat-grid-tile-header class="sub-header">Роли
+  <button mat-fab color="primary" (click)="addNewRole()">
+    <i class="material-icons">add</i>
+  </button>
+</mat-grid-tile-header>
+<div class="grid-container">
+
+
+  <div class="form-control">
+    <div class="role-container">
+      <div *ngFor="let role of roles; let i = index">
+        <div class="form-control">
+          <app-user-role [role]="role" (onChange)="roles[i] = $event"></app-user-role>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<h1>Список пользователей</h1>
+<mat-list *ngIf="list && list.length">
+  <mat-list-item *ngFor="let user of list" [routerLink]="[user.id]">
+    <mat-icon mat-list-icon>account_circle</mat-icon>
+    <h3 mat-line><b>{{user.username}}</b></h3>
+    <p mat-line>{{ user.firstname }} {{ user.lastname }}</p>
+  </mat-list-item>
+</mat-list>
+
+<h4 *ngIf="!list || !list.length">Нет записей</h4>

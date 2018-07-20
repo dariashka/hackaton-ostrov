@@ -1,6 +1,5 @@
 <div class="form-container">
   <h1>Создание нового шаблона</h1>
-  {{ templateForm.value | json }}
   <form [formGroup]="templateForm">
     <div class="block-container">
       <mat-grid-tile-header class="sub-header">Информация</mat-grid-tile-header>
@@ -59,7 +58,7 @@
       <div class="grid-container">
         <div class="form-control">
           <mat-form-field>
-            <input matInput type="number" placeholder="Число успешных проектов" formControlName="projectsCount" min="0">
+            <input matInput type="number" placeholder="Число успешных проектов" formControlName="projectCount" min="0">
           </mat-form-field>
         </div>
         <mat-grid-tile-footer>

@@ -25,25 +25,22 @@ export class ProjectDetailsComponent {
 
   constructor(private _projectService: ProjectService,
               private _templateService: TemplateService,
-              private _activatedRoute: ActivatedRoute,
-              private _router: Router) {
+              private _activatedRoute: ActivatedRoute) {
     this.isLoading = true;
 
     const id = this._activatedRoute.snapshot.params['id'];
     this._projectService.getProject(id).subscribe(result => {
       this.project = result['project'];
-      if (!!this.project.templateId) {
-        this._templateService.getTemplate(this.project.templateId).subscribe(res => this.projectTemplate = res['template']);
+      if (!!this.project.templateID) {
+        this._templateService.getTemplate(this.project.templateID).subscribe(res => {
+          this.projectTemplate = res['template'];
+        });
       }
       this.isLoading = false;
     });
   }
 
-  public createProject() {
-    this._router.navigate(['project', 'new'], {
-      queryParams: {
-        project: this.project.id
-      }
-    });
+  public join(id: number) {
+    this._projectService.join(this.project.id, id).subscribe(console.log);
   }
 }

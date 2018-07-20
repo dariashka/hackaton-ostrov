@@ -5,7 +5,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
   template: `
     <div class="form-control">
       <mat-form-field>
-        <input matInput placeholder="Ресурс" [(ngModel)]="resource" (blur)="onChange.emit($event)" required>
+        <input matInput placeholder="Ресурс" [(ngModel)]="resource" (blur)="onChange.emit(resource)" required>
       </mat-form-field>
     </div>
     <button mat-icon-button (click)="onRemove.emit()">

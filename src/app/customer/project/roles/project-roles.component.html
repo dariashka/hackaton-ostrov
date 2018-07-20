@@ -9,13 +9,14 @@
   <div class="form-control">
     <div class="role-container">
       <div *ngFor="let role of roles; let i = index">
-        <mat-checkbox name="role-{{i}}" (change)="onChange()" [(ngModel)]="role.isNeeded">
+        <mat-checkbox name="role-{{i}}" (change)="onChange()" [ngModel]="!!role.status"
+                      (ngModelChange)="role.status = $event ? 1 : 0">
           <div *ngIf="role.isInput" class="form-control">
             <mat-form-field>
-              <input name="roleName" matInput placeholder="Роль" [(ngModel)]="role.name" required>
+              <input name="roleName" matInput placeholder="Роль" [(ngModel)]="role.role.name" required>
             </mat-form-field>
           </div>
-          <span *ngIf="!role.isInput">{{ role.name }}</span>
+          <span *ngIf="!role.isInput">{{ role.role.name }}</span>
         </mat-checkbox>
       </div>
     </div>
